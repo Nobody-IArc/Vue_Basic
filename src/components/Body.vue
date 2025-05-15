@@ -1,9 +1,11 @@
 <script setup>
+import Cover from '@/components/Cover.vue';
 </script>
 
 <template>
   <div class="body">
     <span>Body Part</span>
+    <Cover color="Purple" />
   </div>
 </template>
 

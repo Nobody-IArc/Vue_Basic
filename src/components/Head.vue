@@ -1,9 +1,11 @@
 <script setup>
+import Cover from '@/components/Cover.vue'
 </script>
 
 <template>
   <div class="head">
     <span>Head Part</span>
+    <Cover color="Yellow" />
   </div>
 </template>
 

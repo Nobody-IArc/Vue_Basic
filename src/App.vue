@@ -1,16 +1,30 @@
 <script setup>
-const pop = (message) => {
-  window.alert(message);
-}
+import {ref} from "vue";
 
-const run = () => {
-  window.alert('Hello World');
-}
+const count = ref(0);
+
+const increaseCount = () => {
+  count.value++;
+  console.log(`count is increased to ${count}`);
+};
+
+const decreaseCount = () => {
+  count.value--;
+  console.log(`click is decreased to ${count}`);
+};
 </script>
 
 <template>
-  <!-- v-on: 은 @ 기호로 대체 가능  -->
-<!--  <button v-on:click="pop('Hello World')">Hello</button>-->
-  <button @click="pop('Hello World')">This is Button</button>
-  <button @click="pop('Hi World')">This is Button 2</button>
+  <div>
+    <h1>Button click</h1>
+    <br />
+    <hr />
+    <ul>
+      <li id="count">숫자 세기 - {{ count }}</li>
+    </ul>
+    <hr />
+    <br />
+    <button @click="increaseCount()">숫자 세기 증가</button>
+    <button @click="decreaseCount()">숫자 세기 감소</button>
+  </div>
 </template>

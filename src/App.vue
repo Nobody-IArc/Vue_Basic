@@ -1,17 +1,23 @@
 <script setup>
-// const message = " Vue 3";
-// const message = { name: 'World', age: 30 };
-const page = "history";
-let loading = true;
+// const parent = "Fruits";
+// const child = "iten";
+// const fruits = "Apple Banana Coconut Durian";
+// const fruitsArr = ["Apple", "Banana", "Coconut", "Durian"];
+const visible = { fruits: true };
+const hidden = { fruits: false };
 </script>
 
 <template>
-<!--  <div v-bind:id="page">-->
-<!--    HISTORY MAKIN-->
-<!--&lt;!&ndash;    <span>Hello </span>&ndash;&gt;-->
-<!--&lt;!&ndash;    <span v-text="JSON.stringify(message)"></span>&ndash;&gt;-->
-<!--  </div>-->
-  <input type="text" placeholder="ID" :readonly="loading" />
-  <input type="password" placeholder="Password" :readonly="loading" />
-  <button :disabled="loading">로그인</button>
+<!--  <ul :class="parent">-->
+<!--    <li :class="child">Apple</li>-->
+<!--    <li :class="child">Banana</li>-->
+<!--    <li :class="child">Coconut</li>-->
+<!--    <li :class="child">Durian</li>-->
+<!--  </ul>-->
+<!--  <div :class="fruits">사과 / 바나나</div>-->
+<!--  <div :class="fruitsArr">바나나 / 코코넛</div>-->
+<!--  <div :title="fruitsArr">코코넛 / 두리안</div>-->
+  <div :class="visible">사과</div>
+  <div :class="hidden">과자</div>
+  <div :class="{ fruits: true }">바나나</div>
 </template>

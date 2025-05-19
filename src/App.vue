@@ -1,9 +1,9 @@
 <script setup>
-// 커스텀 생성 훅
-(async function onCreated() {
-  const hook = 'onCreated';
-  console.log(hook);
-})();
+import { onMounted } from 'vue';
+
+onMounted(() => {
+  console.log(document.getElementById('message'));
+});
 </script>
 
 <template>

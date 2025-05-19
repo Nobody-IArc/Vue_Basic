@@ -1,11 +1,16 @@
 <script setup>
 import Cover from '@/components/Cover.vue'
+import { useCounterStore } from '@/stores/counter'
+
+const counterStore = useCounterStore();
 </script>
 
 <template>
   <div class="head">
     <span>Head Part</span>
     <Cover color="Yellow" />
+    <div>TIMES: {{ counterStore.count }}</div>
+    <button @click="counterStore.increment()">돌려</button>
   </div>
 </template>
 

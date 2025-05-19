@@ -1,11 +1,16 @@
 <script setup>
-import { onMounted } from 'vue';
+import {onUpdated, reactive} from 'vue';
 
-onMounted(() => {
-  console.log(document.getElementById('message'));
+// 반응형 상태
+const state = reactive({
+  message: 'HIHI!'
+});
+
+onUpdated(() => {
+  console.log(document.getElementById('btn').innerText)
 });
 </script>
 
 <template>
-  <div id="message">Aloha!</div>
+  <button id="btn" @click="state.message='HI!'">{{ state.message }}</button>
 </template>

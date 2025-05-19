@@ -1,38 +1,36 @@
 <script setup>
-import {nextTick, reactive} from "vue";
+import {reactive} from "vue";
 
 const state = reactive({
-  count: 0,
+  mvpId: 7,
+  players: [
+    { id: 7, name: 'John' },
+    { id: 9, name: 'Jane' },
+    { id: 10, name: 'Bob' },
+  ]
 });
 
-const increaseCount = () => {
-  state.count++;
+const getMvpName = () => {
+  if (state.mvpId) {
+    const player = state.players.find(p => p.id === state.mvpId);
+    if (player) {
+      return player.name;
+    }
+  }
 
-  nextTick(() => {
-    console.log(document.getElementById("count").innerText);
-  });
-};
-
-const decreaseCount = () => {
-  state.count--;
-
-  nextTick(() => {
-    console.log(document.getElementById("count").innerText);
-  });
-};
+  return 'NO MVP';
+}
 </script>
 
 <template>
   <div>
-    <h1>숫자의 수</h1>
-    <br />
-    <hr />
-    <ul>
-      <li id="count">현재의 수: {{ state.count }}</li>
-    </ul>
-    <hr />
-    <br />
-    <button @click="increaseCount()">숫자 올라가!</button>
-    <button @click="decreaseCount()">숫자 내려가!</button>
+    <h1>MVP</h1>
+    <div>{{ getMvpName() }}</div>
+<!--    <div>-->
+<!--      <template v-if="state.mvpId">-->
+<!--        {{ state.players.find(m => m.id === state.mvpId)?.name || 'NO MVP' }}-->
+<!--      </template>-->
+<!--      <template v-else>NO MVP</template>-->
+<!--    </div>-->
   </div>
 </template>

@@ -1,16 +1,14 @@
 <script setup>
-import {onUpdated, reactive} from 'vue';
+import {reactive} from "vue";
+import SayTheWord from "@/components/SayTheWord.vue";
 
 // 반응형 상태
 const state = reactive({
-  message: 'HIHI!'
-});
-
-onUpdated(() => {
-  console.log(document.getElementById('btn').innerText)
+  visible: true,
 });
 </script>
 
 <template>
-  <button id="btn" @click="state.message='HI!'">{{ state.message }}</button>
+  <SayTheWord v-if="state.visible" />
+  <button @click="state.visible = false">hide</button>
 </template>

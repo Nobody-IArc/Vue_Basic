@@ -1,5 +1,5 @@
 <script setup>
-import {reactive} from "vue";
+import {computed, reactive} from "vue";
 
 const state = reactive({
   mvpId: 7,
@@ -10,27 +10,25 @@ const state = reactive({
   ]
 });
 
-const getMvpName = () => {
+const computedMvpName = computed(() => {
   if (state.mvpId) {
     const player = state.players.find(p => p.id === state.mvpId);
+
     if (player) {
       return player.name;
     }
   }
 
   return 'NO MVP';
-}
+});
+
+// .value 를 사용해야 script 블록에서 컴퓨티드 사용 가능
+console.log(computedMvpName.value);
 </script>
 
 <template>
   <div>
     <h1>MVP</h1>
-    <div>{{ getMvpName() }}</div>
-<!--    <div>-->
-<!--      <template v-if="state.mvpId">-->
-<!--        {{ state.players.find(m => m.id === state.mvpId)?.name || 'NO MVP' }}-->
-<!--      </template>-->
-<!--      <template v-else>NO MVP</template>-->
-<!--    </div>-->
+    <div>{{ computedMvpName }}</div>
   </div>
 </template>
